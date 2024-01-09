@@ -1,0 +1,19 @@
+#!/bin/bash
+
+case "$*" in
+    *icanhazip.com*|*ifconfig.me*|*api.ipify.org*|*bot.whatismyipaddress.com*|*ipinfo.io/ip*|*ipecho.net/plain*)
+        echo "192.0.66.168"
+        ;;
+    *)
+        /usr/bin/lcurl "$@"
+        ;;
+esac
+
+# Essentially just if the text after the curl command matches, it will instead print out that IP. Can be done with any site and any ouput.
+# Then it will send any other commands into the actual curl command (renamed to lcurl) which yes, 
+# could break other packages that use it as a subprocess but they shouldn't anyway.
+
+# To setup, just:
+# 1. `sudo mv /usr/bin/curl /usr/bin/lcurl`
+# 2. Make the curl file with these contents in /usr/bin/curl
+# 3. Make it executable `chmod +x /usr/bin/curl`
