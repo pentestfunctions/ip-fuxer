@@ -18,3 +18,12 @@ Use any public IP as a meme
 # Changes
 Feel free to change anything about the script, we capture any input and check what the curl request is for - if it matches one of our predefined values we replace it with the custom response.
 - Add more etc
+
+
+## Idiot notes:
+- To fix everything after running this simply run
+  ```bash
+  sudo mv /usr/bin/lcurl /usr/bin/curl
+  ```
+
+- This will replace the curl we made with the original. 
